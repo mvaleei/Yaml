@@ -1,0 +1,24 @@
+#gestire la creazione automaticata dei pod in base
+#ad uno state desiderd
+apiVersion: apps/v1     #apiKubernetes
+kind: Deployment 
+metadata:
+  name: deployment-corso
+  #namespace: corso  
+spec:
+  replicas: 8   #desired state
+  selector:
+    matchLabels:
+      app: corso-pod    #nome del pod da monitorare
+  template:
+    metadata: 
+      labels:
+        app: corso-pod  #le regole del pod da ricreare
+    spec:
+      containers:
+        - name: corso-pod 
+          image: nginx:1.25
+          ports:
+            - containerPort: 80
+
+

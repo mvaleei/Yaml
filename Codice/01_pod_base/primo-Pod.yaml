@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod 
+metadata:
+  name: nginx-pod-corso
+  namespace: corso   #chiave che si potrebbe non inserire in caso di esplicitazione all'applicazione
+spec:
+  containers:
+    - name: nginx-container  #nome del container
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+

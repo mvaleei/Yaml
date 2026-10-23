@@ -1,0 +1,33 @@
+apiVersion: apps/v1 
+kind: Deployment 
+metadata:
+  name: lez08-isolation
+  namespace: corso
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: lez08-sms
+  
+  template:
+    metadata:
+      labels:
+        app: lez08-sms  
+    spec:
+      containers:
+        - name: lez08-sms 
+          image: ghostmio/immo2:v2  
+          imagePullPolicy: Always  
+
+          #env ---configmap/secret   
+
+
+          resources:
+            requests:
+              memory: "256Mi"  
+              cpu: "200m" 
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+
+    

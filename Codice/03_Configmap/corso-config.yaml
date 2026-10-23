@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap 
+metadata:
+  name: corso-config
+  namespace: corso
+data:
+  MESSAGGIO: "Saluti da kubernetes"
+  MODO: "Testing"

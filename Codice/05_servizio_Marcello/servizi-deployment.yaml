@@ -1,0 +1,21 @@
+apiVersion: apps/v1 
+kind: Deployment 
+metadata: 
+  name: corso-deployment-servizio
+  namespace: corso 
+spec: 
+  replicas: 3
+  selector:
+    matchLabels: 
+      app: corso-pod-servizio
+  template: 
+    metadata: 
+      labels:
+        app: corso-pod-servizio 
+    spec:
+      containers:
+        - name: corso-pod-servizio 
+          image: ghostmio/immo2:v2 
+          ports:
+            - containerPort: 8080
+

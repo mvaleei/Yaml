@@ -1,0 +1,13 @@
+apiVersion: v1 
+kind: Service    
+metadata: 
+  name: corso-service 
+  namespace: corso  
+spec: 
+  selector:   #il deployment da esporre - etichetta del deployment
+    app: corso-pod-servizio 
+  ports:
+    - port : 8080 
+      targetPort: 8080 
+      nodePort: 30100
+  type: NodePort   #clusterIP
